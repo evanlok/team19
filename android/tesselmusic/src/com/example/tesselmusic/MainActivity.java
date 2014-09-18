@@ -200,4 +200,10 @@ public class MainActivity extends Activity {
 			mCurrentArtist = intent.getStringExtra("artist");
 		}
 	};
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		unregisterReceiver(this.mReceiver);
+	}
 }
