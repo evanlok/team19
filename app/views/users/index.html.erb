@@ -59,7 +59,11 @@
         <% @users.each do |user| %>
           <% next if !user.distance || user.distance.abs > 80 %>
           <div id="person2" class="bar" style="display: inline-block;  width: <%= user.distance.abs * 100 / 80.0 %>%;">distance</div>
-          <img style="display: inline-block; width: 40px; height: 40px" src="http://fc06.deviantart.net/fs38/f/2008/357/7/f/Musical_Tuzki_by_succubolilith.gif"/>
+          <% if user.avatar_url.present? %>
+            <%= image_tag user.avatar_url, height: 40 %>
+          <% else %>
+            <img style="display: inline-block; width: 40px; height: 40px" src="http://fc06.deviantart.net/fs38/f/2008/357/7/f/Musical_Tuzki_by_succubolilith.gif"/>
+          <% end %>
 
           <div class="info">
             <div>
